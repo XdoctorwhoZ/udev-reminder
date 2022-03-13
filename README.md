@@ -1,6 +1,5 @@
-# udev-reminder
-Reminder to use udev like a boss :sunglasses:
-
+# Udev Reminder
+Reminder for tricks around udev :sunglasses:
 
 ## Reload UDEV Rules and restart device triggering
 
