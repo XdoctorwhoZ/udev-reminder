@@ -18,7 +18,10 @@ udevadm info -a /dev/ttyACM0
 ## Python function to get serial port from usb ids
 
 ```python
+# pip install pyudev
+
 import pyudev
+
 def ttyPortfromUsbInfo(vendor_id, product_id, serial=None, base_dev_tty="/dev/ttyACM"):
     # Explore usb device with tty subsystem
     udev_context = pyudev.Context()
@@ -38,4 +41,7 @@ def ttyPortfromUsbInfo(vendor_id, product_id, serial=None, base_dev_tty="/dev/tt
                 return properties["DEVNAME"]
 
     return None
+
+# Usage
+tty = ttyPortfromUsbInfo("abcd", "1234")
 ```
