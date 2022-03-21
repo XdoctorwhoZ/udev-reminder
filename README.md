@@ -61,20 +61,22 @@ Affectations are applied if all conditions are true.
 ### Examples
 
 - If the device has the idVendor "0403" and the idProduct "e0d0" (arduino uno)
+- And if it is a tty interface (SUBSYSTEM=="tty")
 - Then append a "/dev/ttyFOOO"
 
 ```bash
 ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", \
+SUBSYSTEM=="tty", \
 SYMLINK+="ttyFOOO"
 ```
 
 When you have multiple board with the same usb ids, use the serial
 
 ```bash
-ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", ATTRS{serial}=="75833353934351904112", \
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", ATTRS{serial}=="75833353934351904112", \
 SYMLINK+="ttyBOARD_1"
 
-ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", ATTRS{serial}=="75833350254248468412", \
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", ATTRS{serial}=="75833350254248468412", \
 SYMLINK+="ttyBOARD_2"
 ```
 
