@@ -42,6 +42,21 @@ udevadm info -a /dev/ttyS0
 #
 ```
 
+You don't know your usb device path ? Use the monitor to see udev event on your machine.
+
+
+```bash
+# Start monitor
+udevadm monitor -k
+
+# Plug your device and watch
+# KERNEL[5657.769265] add      /devices/pci0000:00/0000:00:06.0/usb1/1-2 (usb)
+# KERNEL[5657.773323] add      /devices/pci0000:00/0000:00:06.0/usb1/1-2/1-2:1.0 (usb)
+# KERNEL[5657.784851] add      /devices/pci0000:00/0000:00:06.0/usb1/1-2/1-2:1.0/0003:413C:301A.0002 (hid)
+# KERNEL[5657.784881] add      /devices/pci0000:00/0000:00:06.0/usb1/1-2/1-2:1.0/0003:413C:301A.0002/input/input8 (input)
+# KERNEL[5657.785082] add      /devices/pci0000:00/0000:00:06.0/usb1/1-2/1-2:1.0/0003:413C:301A.0002/input/input8/mouse2 (input)
+```
+
 ## To list usb information usable in udev rules
 
 Udev rules are stored in **/etc/udev/rules.d/**, you can create you onw rules 99-my-rules.rules.
