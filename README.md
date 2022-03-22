@@ -1,6 +1,10 @@
 # Udev Reminder
 Reminder for tricks around udev :sunglasses:
 
+If you need more information check here:
+
+- [doc.ubuntu-fr](https://doc.ubuntu-fr.org/udev)
+
 ## Reload UDEV Rules and restart device triggering
 
 Use this command to reload the udev rules and restart a device detection.
@@ -78,6 +82,13 @@ SYMLINK+="ttyBOARD_1"
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", ATTRS{serial}=="75833350254248468412", \
 SYMLINK+="ttyBOARD_2"
+```
+
+When you must use 'sudo' to access to an USB device. !Be carefull! there 4 digits to MODE
+
+```bash
+ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", \
+MODE="0666"
 ```
 
 ## Python function to get serial port from usb ids
